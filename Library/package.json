@@ -1,0 +1,85 @@
+{
+  "name": "ponga-demo",
+  "version": "0.1.1",
+  "private": false,
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "email-validator": "^2.0.4",
+    "styled-components": "^5.3.0"
+  },
+  "scripts": {
+    "build": "tsc --build \"./tsconfig.json\"",
+    "build:storybook": "build-storybook -s public",
+    "compile-icons": "npx @svgr/cli -d src/icons src/icons --typescript",
+    "copy-fonts": "copyfiles -u 1 src/config/fonts/* lib/",
+    "eject": "react-scripts eject",
+    "postbuild": "npm run copy-fonts",
+    "prebuild": "npm run compile-icons",
+    "prepublish": "npm run build",
+    "storybook": "start-storybook -p 6006",
+    "test": "react-scripts test",
+    "build-storybook": "build-storybook"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "@svgr/cli": "^5.5.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.13",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@types/styled-components": "^5.1.9",
+    "copyfiles": "^2.4.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "react": "^17.0.2",
+    "react-docgen-typescript-plugin": "^0.7.1",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.3.2",
+    "web-vitals": "^1.1.2"
+  }
+}
